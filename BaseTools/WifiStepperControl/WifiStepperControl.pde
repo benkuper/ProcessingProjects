@@ -27,7 +27,7 @@ void setup(){
   
   // Create a serial manager using the first serial port name listed
   serialMan = new ArduinoBufferedSerial(
-  new PSerialDevice(this, "COM14", 9600),
+  new PSerialDevice(this, Serial.list()[1], 9600),
     new Handler());
   }
   
