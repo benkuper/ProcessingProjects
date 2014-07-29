@@ -40,6 +40,9 @@ void draw()
 {
   // We always need to update the serial manager in our draw or update method
   //serialMan.update();
+  background(0);
+  textSize(20);
+  text("motor : "+currentMotor,10,10,200,50);
 }
 
 void setMotorSpeed(int motorIndex, float value)
@@ -54,6 +57,7 @@ void setMotorSpeed(int motorIndex, float value)
 
 void setMotorHome(int motorIndex)
 {
+  println("Set motor home :"+motorIndex);
   ByteBuffer sendBuffer = ByteBuffer.allocateDirect(12);
   sendBuffer.put((byte)'h'); 
  sendBuffer.putInt(motorIndex); 
@@ -62,6 +66,7 @@ void setMotorHome(int motorIndex)
 
 void setMotorPosition(int motorIndex, int pos)
 {
+  println("Set motor pose :"+motorIndex+" : "+pos);
   ByteBuffer sendBuffer = ByteBuffer.allocateDirect(12);
   sendBuffer.put((byte)'p'); 
   sendBuffer.putInt(motorIndex);
@@ -69,12 +74,32 @@ void setMotorPosition(int motorIndex, int pos)
   serialMan.sendBuffer(sendBuffer);
 }
 
-void keyPressed()
+void defineMotorPos(int motorIndex, int pos)
+{
+  println("Define pose :"+motorIndex+" : "+pos);
+  ByteBuffer sendBuffer = ByteBuffer.allocateDirect(12);
+  sendBuffer.put((byte)'d'); 
+  sendBuffer.putInt(motorIndex);
+  sendBuffer.putInt(pos); 
+  serialMan.sendBuffer(sendBuffer);
+}
+
+void keyPressed(KeyEvent e)
 {
   switch(key)
   {
+    case 'g':
+    
+    for(int i=0;i<5;i++)
+    {
+      setMotorHome(i);
+    }
+    speed = 1;
+    break;
+    
     case 'h':
     setMotorHome(currentMotor);
+    speed = 1;
     break;
     
     case 'p':
@@ -83,17 +108,17 @@ void keyPressed()
     
     case 'o':
     setMotorHome(currentMotor);
-    setMotorPosition(currentMotor,-4800);
+    setMotorPosition(currentMotor,-4500);
     break;
     
     case 'i':
     setMotorHome(currentMotor);
-    setMotorPosition(currentMotor,4800);
+    setMotorPosition(currentMotor,4500);
     break;
     
     case 'u':
     setMotorHome(currentMotor);
-    setMotorPosition(currentMotor,1000);
+    setMotorPosition(currentMotor,300);
     break;
     
     case 'a':
@@ -138,9 +163,25 @@ void keyPressed()
     currentMotor = 2;
     break;
     
+     case '3':
+    currentMotor = 3;
+    break;
+     case '4':
+    currentMotor = 4;
+    break;
+    
     case '+':
     speed += 100;
-    setMotorSpeed(currentMotor,speed);
+    if(key == SHIFT)
+    {
+      for(int i=0;i<5;i++)
+      {
+        setMotorSpeed(i,speed);
+      }
+    }else
+    {
+      setMotorSpeed(currentMotor,speed);
+    }
     println("Speed : "+speed);
     break;
     
@@ -149,6 +190,23 @@ void keyPressed()
     setMotorSpeed(currentMotor,speed);
     println("Speed : "+speed);
     break;
+    
+    case '/':
+    speed -= 100;
+    for(int i=0;i<5;i++)
+      {
+        setMotorSpeed(i,speed);
+      }
+      println("Speed : "+speed);
+      break;
+    case '*':
+    speed += 100;
+    for(int i=0;i<5;i++)
+      {
+        setMotorSpeed(i,speed);
+      }
+      println("Speed : "+speed);
+      break; 
     
     case '.':
     speed = 1;
@@ -184,13 +242,20 @@ class Handler implements SerialPacketHandler{
 
 void oscEvent(OscMessage msg) {
   
+  println("Received message"+msg.addrPattern());
+  
   try
   {
     /* print the address pattern and the typetag of the received OscMessage */
     String add = msg.addrPattern();
     int id = 0;
     println("OSC Message : "+add);
-    if(add.equals("/home"))
+    if(add.equals("/defPos"))
+    {
+      id = msg.get(0).intValue();
+      int pos = msg.get(1).intValue();
+      defineMotorPos(id,pos);
+    }else if(add.equals("/home"))
     {
       id = msg.get(0).intValue();
       setMotorHome(id);
