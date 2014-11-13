@@ -13,13 +13,13 @@ class JSpout {
 
   static native boolean ReleaseReceiver();
 
-  static native void WriteToSharedMemory(int w, int h, int[] pix);
+  static native boolean WriteToSharedMemory(int w, int h, int[] pix);
 
   static native boolean ReadFromSharedMemory(int[] dim, int[] pix);
 
   static native boolean ReadTexture(int[] dim, int[] pix);
 
-  static native void WriteTexture(int w, int h, int texID, int texTarget, boolean bInvert);
+  static native boolean WriteTexture(int w, int h, int texID, int texTarget, boolean bInvert);
 
   static native String GetSenderName();
   

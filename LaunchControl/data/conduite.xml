@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<state text="Mise">
+		<pad id="1" color="amber" next="true" >
+			<osc message="/composition/disconnectall" arg="1" />
+			<osc message="/layer1/transitiontime" arg="0" type="f" />
+		</pad>
+	</state>
+	
+	<state text="Grotte ambiance">
+		<pad id="7" color="yellow" next="true">
+			<osc message="/layer2/clip1/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Grotte cri ours 1">
+		<pad id="7" color="yellow" next="true">
+			<osc message="/layer2/clip2/connect" arg="1"/>
+		</pad>
+	</state>
+	
+	<state text="Grotte cri ours 2">
+		<pad id="7" color="yellow" next="true">
+			<osc message="/layer2/clip2/connect" arg="1"/>
+		</pad>
+	</state>
+	
+	<state text="Grotte vidéo">
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip1/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Grotte vidéo OFF">
+		<pad id="3" color="red" next="true" >
+			<osc message="/layer1/clip2/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Grotte Cri final">
+		<pad id="7" color="yellow" next="true">
+			<osc  message="/layer2/clip3/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Soleil Levant">
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip3/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Egypte">
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip4/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Grec">
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip5/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Inde">
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip6/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Perse">
+		<pad id="2" color="green" next="true">
+			<osc message="/layer1/transitiontime" arg="0.2" type="f" />
+			<osc  message="/layer1/clip7/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Arabes">
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip8/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Moyen Age">
+		<pad id="2" color="green" next="true">
+			<osc message="/layer1/transitiontime" arg="0" type="f" />
+			<osc  message="/layer1/clip9/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Vitrail">
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip10/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Vitrail OFF">
+		<pad id="3" color="red" next="true">
+			<osc  message="/layer1/clip11/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Theatre Audio">
+		<pad id="7" color="yellow" next="true">
+			<osc  message="/layer2/clip12/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Theatre Video">
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip12/connect" arg="1" />
+		</pad>
+		
+	</state>
+	
+	<state text="Theatre Video OFF">
+		<pad id="3" color="red" next="true">
+			<osc  message="/layer1/clip13/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Vivaldi apparition">
+		<pad id="2" color="green" next="true">
+			<osc message="/layer1/transitiontime" arg="0.25" type="f" />
+			<osc  message="/layer1/clip14/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Vivaldi (vert 1/2 = papillon on/off&#10;jaune = tonnerre, rouge = off)">
+		<pad id="2" color="green">
+			<osc  message="/layer1/clip16/connect" arg="1" />
+		</pad>
+		
+		<pad id="3" color="green" >
+			<osc  message="/layer1/clip15/connect" arg="1" />
+		</pad>
+		
+		<pad id="4" color="red" next="true">
+			<osc message="/layer1/transitiontime" arg="0" type="f" />
+			<osc  message="/track17/connect" arg="1" />
+		</pad>
+		
+		<pad id="7" color="yellow" >
+			<osc  message="/layer2/clip15/connect" arg="1" />
+		</pad>
+	</state>
+	
+	
+	<state text="Tzigane / Classique (vert = tzigane &#10; jaune = classique, rouge = off)">
+		
+		<pad id="2" color="green">
+			<osc message="/layer1/transitiontime" arg="0.03" type="f" />
+			<osc  message="/layer1/clip18/connect" arg="1" />
+		</pad>
+		
+		<pad id="3" color="yellow" >
+			<osc message="/layer1/transitiontime" arg="0.03" type="f" />
+			<osc  message="/layer1/clip19/connect" arg="1" />
+		</pad>
+		
+		<pad id="4" color="red" next="true">
+			<osc message="/layer1/transitiontime" arg="0.03" type="f" />
+			<osc  message="/layer1/clip20/connect" arg="1" />
+		</pad>
+		
+		
+	</state>
+	
+	<state text="Voyage Train">
+		
+		<pad id="2" color="green" next="true">
+			<osc message="/layer1/transitiontime" arg="0" type="f" />
+			<osc  message="/layer1/clip21/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Voyage Train OFF">
+		<pad id="3" color="red" next="true">
+			<osc  message="/layer1/clip22/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Voyage bateau&#10;
+(rouge = off, jaune = audio)">
+		
+		<pad id="2" color="green">
+			<osc  message="/layer1/clip23/connect" arg="1" />
+		</pad>
+		
+		<pad id="3" color="red" next="true">
+			<osc  message="/layer1/clip24/connect" arg="1" />
+		</pad>
+		
+		<pad id="7" color="yellow">
+			<osc  message="/layer2/clip24/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Paganini">
+		
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip25/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Paganini OFF">
+		<pad id="3" color="red" next="true">
+			<osc  message="/layer1/clip26/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Ville 1 (charlie guitare)">
+		<osc message="/layer1/transitiontime" arg="0.02" type="f" />
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip27/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Ville 2 (sylvain micro)">
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip28/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Ville 3 (charlie rock)">
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip29/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Ville 4 (beatles)">
+		<pad id="2" color="green" next="true">
+			<osc  message="/layer1/clip30/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Hard Rock (disto charlie)">
+		<pad id="2" color="green" next="true">
+			<osc message="/layer1/transitiontime" arg="0.01" type="f" />
+			<osc  message="/layer1/clip31/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Soft (particules)">
+		<pad id="2" color="green" next="true">
+			<osc message="/layer1/transitiontime" arg="0.15" type="f" />
+			<osc  message="/layer1/clip32/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Soft OFF">
+		<pad id="2" color="green" next="true">
+			<osc message="/layer1/transitiontime" arg="0.1" type="f" />
+			<osc  message="/layer1/clip33/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Techno">
+		<pad id="2" color="green" next="true">
+			<osc message="/layer1/transitiontime" arg="0" type="f" />
+			<osc  message="/layer1/clip34/connect" arg="1" />
+		</pad>
+	</state>
+	
+	<state text="Noir FIN">
+		<pad id="2" color="green" next="true">
+			<osc message="/layer1/transitiontime" arg="0.15" type="f" />
+			<osc  message="/layer1/clip35/connect" arg="1" />
+		</pad>
+	</state>
+</data>

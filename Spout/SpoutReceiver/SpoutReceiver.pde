@@ -20,12 +20,9 @@ void setup() {
   size(640, 360, P2D);
   frame.setResizable(true); // to adapt to sender frame size
   background(0);
-
+  
   // Create an image to receive the data.
-  // RGB, ARGB, image size or frame size do not matter
-  // because the received image and the frame adapt if
-  // the incomimg texture size changes
-  img = createImage(width, height, RGB);
+  img = createImage(width, height, ARGB);
   
   // CREATE A NEW SPOUT OBJECT HERE
   spout = new Spout();
@@ -34,45 +31,33 @@ void setup() {
   // Give it the name of the sender you want to connect to
   // Otherwise it will connect to the active sender
   // img will be updated to the sender size
-  spout.initReceiver("videoshare", img);
- 
-  // Alternative for memoryshare only 
-  // spout.initReceiver();
+  spout.initReceiver("", img);
   
 } 
 
 void draw() {
-  
   // RECEIVE A SHARED TEXTURE HERE
   img = spout.receiveTexture(img);
-  
   // Draw the result
   image(img, 0, 0, width, height);
-  
 }
 
 
 // RH click to select a sender
 void mousePressed() {
-  
   // SELECT A SPOUT SENDER HERE
   if (mouseButton == RIGHT) {
     // Bring up a dialog to select a sender from
     // the list of all senders running.
     JSpout.SenderDialog();
   }
-  
 }
 
 // over-ride exit to release sharing
 void exit() {
   // CLOSE THE SPOUT RECEIVER HERE
   spout.closeReceiver();
-  super.exit(); // necessary
+  super.exit();
 } 
-
-
-
-
 
 
